@@ -12,8 +12,6 @@ function sortear(){
         while(sorteados.includes(numero)){
             numero = obterNumeroAleatorio(de, ate);
         }
-
-
         sorteados.push(numero);
     }
     let resultado = document.getElementById(`resultado`);
@@ -35,7 +33,11 @@ function alterarStatusBotao(){
         botao.classList.add(`container__botao-desabilitado`);
     }
 }
-
+//função para reiniciar o jogo.
 function reiniciar(){
-    
+    document.getElementById('quantidade').value = '';
+    document.getElementById('de').value = '';
+    document.getElementById('ate').value = '';
+    document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Números sorteados:  nenhum até agora</label>';
+    alterarStatusBotao();
 }
