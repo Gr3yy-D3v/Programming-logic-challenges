@@ -3,9 +3,13 @@ function sortear(){
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
     if (de >= ate) {
-        alert('Campo "do número" deve ser inferior ao campo "até o número. Verifique!')
+        alert('Campo "do número" deve ser inferior ao campo "até o número. Verifique!');
         return;
     }
+    if (quantidade > (ate - de + 1)) {
+        alert('Campo "Quantidade" deve ser menor ou igual ao intervalo informado no campo "Do número" até o campo "Até o número". Verifique!');
+        return;
+      }
     let sorteados = [];
     let numero;
     //Isso irá definir que é para pegar o número de 0 até que chegue na variável escolhida
@@ -14,6 +18,7 @@ function sortear(){
         //Enquanto for verdadeiro, o número vai ser sorteado novamente para que não tenha nenhum repetido.
         while(sorteados.includes(numero)){
             numero = obterNumeroAleatorio(de, ate);
+            alert('Tentando obter número inédito');
         }
         sorteados.push(numero);
     }
